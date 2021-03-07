@@ -1,0 +1,152 @@
+<style>
+  .category {
+    font-size: x-large;
+    font-weight: lighter;
+  }
+
+  .badge-outline {
+    color: var(--success);
+    border: 2px solid var(--success);
+    background-color: transparent;
+  }
+
+  .badge-outline:hover {
+    color: #fff;
+    background-color: var(--success);
+  }
+
+  .badge-outline.active {
+    color: #fff;
+    background-color: var(--success);
+  }
+
+  .card-deck .card {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .pizza {
+    padding: 0;
+  }
+
+  .pizza-actions {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+</style>
+
+<div class="container">
+
+  <div class="col">
+
+    <div class="categories mt-3">
+
+      <div class="d-none d-lg-block">
+        <button *ngFor="let category of categories"
+                (click)="selectedCategory = category"
+                class="badge badge-pill badge-outline category text-uppercase m-1 {{isActive(category)}}">
+          {{category.productCategoryName}}
+        </button>
+      </div>
+
+      <div class="d-lg-none">
+        <div class="btn-group btn-block">
+          <button type="button"
+                  class="btn btn-success btn-block dropdown-toggle"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+            Valitse tuotekategoria
+          </button>
+          <div class="dropdown-menu">
+            <a *ngFor="let category of categories"
+               class="dropdown-item {{selectedCategory === category ? 'active' : ''}}"
+               (click)="selectedCategory = category"
+               href="#">{{category.productCategoryName}}</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="col">
+    <h1 class="display-5 d-lg-none">{{selectedCategory.productCategoryName}}</h1>
+  </div>
+
+  <div class="col">
+
+    <div class="col">
+      <div class="card-deck">
+
+        <div *ngFor="let p of selectedCategory.products; let i = index;"
+             class="col-12 col-md-6 col-lg-4 col-xl-3 pizza mb-4">
+
+          <div class="card">
+
+            <img class="card-img-top"
+                 src="{{p.menuimagepath}}"
+                 alt="Card image cap">
+
+            <div class="card-body">
+
+              <h5 class="card-title text-uppercase">
+                <div class="row">
+                  <div class="col">
+                    <span>{{p.name}}</span>
+                  </div>
+
+                  <div class="col-auto">
+                    <span>{{p.price | currency:'':'' }}€</span>
+                  </div>
+                </div>
+              </h5>
+
+              <div style="height: 7rem;">
+                <small class="card-text">{{p.description}}</small>
+                <!-- <small class="card-text">{{p.description.length > 100 ? (p.description | slice:0:100) + '...' : (p.description)}}</small> -->
+              </div>
+
+              <div class="form-group">
+                <div class="col btn-group btn-group-sm px-0"
+                     role="group">
+                  <button *ngFor="let size of sizes"
+                          type="button"
+                          (click)="p.size = size"
+                          class="btn btn-outline-success {{p.size === size ? 'active' : ''}}">{{size}}</button>
+                </div>
+              </div>
+
+              <div class="form-group custom-control custom-checkbox checkbox-success">
+                <input type="checkbox"
+                       class="custom-control-input"
+                       id="add-garlic-check-{{i}}"
+                       [value]="p.hasGarlic">
+                <label class="custom-control-label"
+                       for="add-garlic-check-{{i}}">Lisää valkosipuli</label>
+              </div>
+
+              <div class="form-group row pizza-actions">
+                <button class="btn btn-outline-success col-md-auto">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+
+                <button class="btn btn-success col-md mt-1 mt-md-0">
+                  Lisää tilaukseen
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

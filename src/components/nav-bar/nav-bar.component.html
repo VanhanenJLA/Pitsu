@@ -1,0 +1,84 @@
+<style>
+  .nav-link {
+    font-size: large;
+    font-weight: normal;
+    color: var(--success) !important;
+  }
+
+  .navbar-light .navbar-nav .active>.nav-link {
+    border-bottom: 3px solid var(--success);
+    font-weight: bolder;
+  }
+
+  .nav-link:hover {
+    border-bottom: 3px solid var(--success);
+    font-weight: bolder;
+  }
+
+</style>
+
+<div>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light"
+       role="navigation">
+
+    <div class="container-md">
+
+      <a class="navbar-brand"
+         title="Home"
+         href="#">
+        <i class="fas fa-home pr-2"></i>
+        <!-- <img class="pr-2"
+             width="32"
+             src="../../favicon.ico"
+             alt="Logo" /> -->
+        <span class="text-uppercase"
+              style="font-size: xx-large;">🏡🍕</span>
+      </a>
+
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navigation-navbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse"
+           id="navigation-navbar">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item active mr-1">
+            <a href="#"
+               class="nav-link text-uppercase">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a href="#"
+               class="nav-link text-uppercase">Luo oma pizza</a>
+          </li>
+          <li class="nav-item">
+
+            <a href="#"
+               class="nav-link text-uppercase">Kotijoukot</a>
+          </li>
+        </ul>
+
+        <div class="navbar-nav">
+          <a class="nav-link text-uppercase">
+            <i class="bi bi-person"></i>
+            Kirjaudu
+          </a>
+
+          <a class="nav-link text-uppercase">
+            <i class="bi bi-cart4"></i> 
+            Tilaus 0,00€
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <div>

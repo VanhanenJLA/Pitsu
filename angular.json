@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Maze": {
+    "Pitsu": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Maze",
+            "outputPath": "dist/Pitsu",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Maze:build"
+            "browserTarget": "Pitsu:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Maze:build:production"
+              "browserTarget": "Pitsu:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Maze:build"
+            "browserTarget": "Pitsu:build"
           }
         },
         "test": {
@@ -113,16 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Maze:serve"
+            "devServerTarget": "Pitsu:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Maze:serve:production"
+              "devServerTarget": "Pitsu:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Maze"
+  "defaultProject": "Pitsu"
 }
