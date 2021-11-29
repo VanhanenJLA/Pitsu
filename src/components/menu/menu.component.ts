@@ -26,7 +26,6 @@ export class MenuComponent implements OnInit {
    return this.selectedCategory === category ? 'active' : ''
   }
   
-
 }
 
 let perfetta: Pizza = {
